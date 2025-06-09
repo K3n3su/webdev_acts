@@ -44,4 +44,12 @@
             </x-primary-button>
         </div>
     </form>
+
+<!-- Sign Up Redirect -->
+<div class="mt-4 text-center">
+    <a href="{{ route('register') }}"
+       class="inline-block text-sm text-blue-600 hover:text-blue-800 font-semibold">
+        Don’t have an account? Sign up here
+    </a>
+</div>
 </x-guest-layout>

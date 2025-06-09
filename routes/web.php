@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\RegisterController;
+
 
 // ✅ Always send users to the Breeze login controller
 Route::get('/', function () {
@@ -28,3 +30,9 @@ Route::middleware('auth')->group(function () {
         return view('dashboard');
     })->middleware(['verified'])->name('dashboard');
 });
+
+// Show registration form
+Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('register');
+
+// Handle registration submission
+Route::post('/register', [RegisterController::class, 'register']);

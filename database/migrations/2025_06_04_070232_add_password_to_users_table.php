@@ -6,12 +6,14 @@ use Illuminate\Support\Facades\Schema;
 
 class AddPasswordToUsersTable extends Migration
 {
-    public function up(): void
-    {
+   public function up(): void
+{
+    if (!Schema::hasColumn('users', 'password')) {
         Schema::table('users', function (Blueprint $table) {
             $table->string('password')->after('email');
         });
     }
+}
 
     public function down(): void
     {
